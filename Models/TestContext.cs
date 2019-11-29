@@ -26,12 +26,23 @@ namespace TestDatabase.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer(Connection.ConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Profile>()
+                .HasMany(p => p.Contents)
+                .WithOne(c => c.Uploader);
+
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.Contents)
+                .WithOne(c => c.Category);
+
+            modelBuilder.Entity<Content>()
+                .HasOne<File>(c => c.File)
+                .WithOne(f => f.Content)
+                .HasForeignKey<File>(f => f.ContentId);
         }
     }
 }

@@ -13,5 +13,6 @@ namespace TestDatabase.Models
         [Required]
         public string CategoryName { get; set; }
 
+        public ICollection<Content> Contents { get; set; }
     }
 }

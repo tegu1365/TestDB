@@ -12,11 +12,10 @@ namespace TestDatabase
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
-        public Category Category { get; set; }
-        [Required]
-        public File File { get; set; }
-        //WTF IS THIS
-        public Profile Upload { get; set; }// WTF
+     
+
+        public Category Category { get; set; }     
+        public File File { get; set; }     
+        public Profile Uploader { get; set; }
     }
 }

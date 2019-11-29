@@ -22,6 +22,9 @@ namespace TestDatabase.Models
         [Required]
         public ProfileType ProfileType { get; set; }
 
+        public ICollection<Content> Contents { get; set; }
+
+
 
     }
 }
