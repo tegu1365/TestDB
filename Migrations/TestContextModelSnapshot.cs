@@ -25,6 +25,9 @@ namespace TestDatabase.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Author")
+                        .IsRequired();
+
                     b.Property<int?>("CategoryId");
 
                     b.Property<string>("Title")

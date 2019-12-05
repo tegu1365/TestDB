@@ -10,8 +10,8 @@ using TestDatabase.Models;
 namespace TestDatabase.Migrations
 {
     [DbContext(typeof(TestContext))]
-    [Migration("20191129162218_Initial")]
-    partial class Initial
+    [Migration("20191205141614_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,9 @@ namespace TestDatabase.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Author")
+                        .IsRequired();
 
                     b.Property<int?>("CategoryId");
 

@@ -15,14 +15,21 @@ namespace TestDatabase.Services
            _context = context;
         }
 
-        public void AddProfile(string n, string e, string p, ProfileType pt)
+        public void AddProfile(string[] args)
         {
             Profile person = new Profile();
 
-            person.Name = n;
-            person.Email = e;
-            person.Password = p;
-            person.ProfileType = pt;
+            person.Name = args[0];
+            person.Email = args[1];
+            person.Password = args[2];
+            if (args[3] == "Admin")
+            {
+                person.ProfileType = ProfileType.Admin;
+            }
+            else
+            {
+                person.ProfileType = ProfileType.User;
+            }
 
             _context.Profiles.Add(person);
             _context.SaveChanges();
