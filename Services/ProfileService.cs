@@ -46,7 +46,7 @@ namespace TestDatabase.Services
             _context.SaveChanges();
         }
 
-        public void ReNameProfil(string e, string p, string newName)
+        public void RenameProfile(string e, string p, string newName)
         {
             Profile person = GetProfile(e, p);
             person.Name = newName;
